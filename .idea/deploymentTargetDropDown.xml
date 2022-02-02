@@ -6,12 +6,12 @@
         <type value="RUNNING_DEVICE_TARGET" />
         <deviceKey>
           <Key>
-            <type value="SERIAL_NUMBER" />
-            <value value="RX8R50L1YNJ" />
+            <type value="VIRTUAL_DEVICE_PATH" />
+            <value value="C:\Users\walte\.android\avd\Pixel_3_XL_API_30.avd" />
           </Key>
         </deviceKey>
       </Target>
     </runningDeviceTargetSelectedWithDropDown>
-    <timeTargetWasSelectedWithDropDown value="2022-02-01T22:49:50.855495Z" />
+    <timeTargetWasSelectedWithDropDown value="2022-02-02T14:47:34.862919100Z" />
   </component>
 </project>

@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
                 val data = it.data
                 data?.extras?.get("data")?.let { photo ->
                     imagePerfil?.setImageBitmap(photo as Bitmap)
+                   // imagePerfil?.setImageURI(photo as )
                 }
             }
         }
@@ -48,21 +49,23 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         getSupportActionBar()?.hide()
 
         val btn_changePhoto = findViewById<ImageView>(R.id.icone_camera)
-        val imagePerfil = findViewById<ImageView>(R.id.imagem_profile)
+        val btn_nomePerfil = findViewById<ImageView>(R.id.icone_edit)
 
         btn_changePhoto.setOnClickListener{
             dialogPhoto(it.context)
-            Toast.makeText(this, "Clicouuu", Toast.LENGTH_LONG).show()
+        }
+
+        btn_nomePerfil.setOnClickListener{
+            Toast.makeText(this, "Clique no Texto para mudar o nome", Toast.LENGTH_LONG).show()
         }
 
     }
-
 
     private fun dialogPhoto(context: Context) {
         val itens = arrayOf("Tirar foto", "Buscar na Galeria")
         AlertDialog
             .Builder(context)
-            .setTitle("qual você deseja usar?")
+            .setTitle("Qual você deseja usar?")
             .setItems(itens) { dialog, index ->
                 when (index) {
                     0 -> getFromCamera(context)
@@ -76,7 +79,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         val permission =
             ContextCompat.checkSelfPermission(context, Manifest.permission.CAMERA)
 
-        if (permission == PackageManager.PERMISSION_DENIED) {
+        if (permission == PackageManager.PERMISSION_GRANTED) {
             val intent = Intent().apply {
                 action = MediaStore.ACTION_IMAGE_CAPTURE
             }
